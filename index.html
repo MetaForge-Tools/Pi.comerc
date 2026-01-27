@@ -1,20 +1,47 @@
 
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر Pi.comerc</title>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-    <script>
-        Pi.init({ version: "2.0", sandbox: true });
-        window.onload = function() {
-            Pi.authenticate(['username', 'payments'], function(p){}).then(function(auth) {
-                document.getElementById('status').innerText = "متصل: " + auth.user.username;
-            });
-        };
-    </script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; text-align: center; padding: 20px; }
+        .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        .btn { background-color: #6d28d9; color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-size: 16px; margin-top: 20px; }
+        .status { color: #555; margin-top: 10px; font-size: 14px; }
+    </style>
 </head>
-<body style="text-align: center; padding-top: 50px;">
-    <h1>متجر Pi.comerc الرسمي</h1>
-    <div id="status">جاري فحص محفظة باي...</div>
+<body>
+
+    <div class="card">
+        <h1>🛒 متجر Pi.comerc</h1>
+        <p>مرحباً بك في واجهتك الجديدة</p>
+        <div id="user-info" class="status">جاري الاتصال بـ Pi Browser...</div>
+        
+        <hr>
+        <h3>منتج تجريبي</h3>
+        <p>السعر: 1 Pi</p>
+        <button class="btn" onclick="transferPi()">شراء الآن باستخدام Pi</button>
+    </div>
+
+    <script>
+        // تفعيل الربط مع الشبكة
+        Pi.init({ version: "2.0", sandbox: true });
+
+        // طلب التعرف على المستخدم فور الدخول
+        Pi.authenticate(['username', 'payments'], function(payment) {
+            console.log("دفعة معلقة:", payment);
+        }).then(function(auth) {
+            document.getElementById('user-info').innerText = "متصل كـ: " + auth.user.username;
+        }).catch(function(error) {
+            document.getElementById('user-info').innerText = "يرجى الفتح من داخل Pi Browser";
+        });
+
+        function transferPi() {
+            alert("سيتم تفعيل بوابة الدفع فور ربط تطبيقك بـ Developer Portal");
+        }
+    </script>
 </body>
 </html>
