@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <script>
+        Pi.init({ version: "2.0", sandbox: true });
+        window.onload = function() {
+            Pi.authenticate(['username', 'payments'], function(p){}).then(function(auth) {
+                document.getElementById('status').innerText = "متصل: " + auth.user.username;
+            });
+        };
+    </script>
+</head>
+<body style="text-align: center; padding-top: 50px;">
+    <h1>متجر Pi.comerc الرسمي</h1>
+    <div id="status">جاري فحص محفظة باي...</div>
+</body>
+</html>
