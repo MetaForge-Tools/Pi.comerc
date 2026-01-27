@@ -3,151 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-Comerce | المتجر المتكامل</title>
+    <title>P-Comerce Ecosystem | الأساس المالي</title>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; }
-        .section { display: none; }
-        .section.active { display: block; }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        body { font-family: 'Cairo', sans-serif; background-color: #fcfcfc; }
+        .tab-section { display: none; }
+        .tab-section.active { display: block; }
+        /* أحواض الإعلانات الصورية */
+        .ad-basin { 
+            background: #f1f5f9; 
+            border: 2px dashed #e2e8f0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 12px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="text-slate-900">
 
-    <nav class="bg-purple-900 text-white shadow-xl sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
-            <h1 class="text-2xl font-black tracking-tighter cursor-pointer" onclick="showSection('home')">P-COMERCE</h1>
-            
-            <div class="flex-grow max-w-md mx-4 hidden md:block">
-                <div class="relative">
-                    <input type="text" placeholder="ابحث عن منتج..." class="w-full px-4 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-400 text-sm">
-                    <button class="absolute left-2 top-2 text-gray-500">🔍</button>
-                </div>
+    <div class="ad-basin h-24 w-full">مساحة إعلانية علوية استراتيجية</div>
+
+    <nav class="bg-purple-950 text-white sticky top-0 z-50 shadow-lg py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-black tracking-tighter cursor-pointer" onclick="showTab('home')">P-COMERCE</h1>
+            <div class="hidden md:flex flex-grow max-w-md mx-10">
+                <input type="text" placeholder="ابحث في النظام البيئي..." class="w-full bg-purple-900 border-none rounded-full px-5 py-2 text-sm text-white focus:ring-2 focus:ring-yellow-500">
             </div>
-
-            <div class="flex space-x-4 space-x-reverse font-bold text-sm">
-                <button onclick="showSection('home')" class="hover:text-purple-300">الرئيسية</button>
-                <button onclick="showSection('shop')" class="hover:text-purple-300">المتجر</button>
-                <button onclick="showSection('about')" class="hover:text-purple-300">من نحن</button>
-                <button onclick="showSection('privacy')" class="hover:text-purple-300">الخصوصية</button>
+            <div class="flex gap-6 font-bold text-sm">
+                <button onclick="showTab('home')" class="hover:text-yellow-400">الرئيسية</button>
+                <button onclick="showTab('shop')" class="hover:text-yellow-400">السوق</button>
+                <button onclick="showTab('admin')" class="text-yellow-400">الإدارة</button>
             </div>
         </div>
     </nav>
 
-    <main id="home" class="section active">
-        <div class="relative bg-purple-800 h-[500px] flex items-center justify-center text-center text-white px-4 overflow-hidden">
-            <div class="z-10">
-                <h2 class="text-4xl md:text-6xl font-extrabold mb-6 animate-fade-in">متجرك الرقمي الأول في شبكة Pi</h2>
-                <p class="text-xl mb-10 text-purple-100 max-w-2xl mx-auto">نظام تجاري متطور يدعم المنتجات الرقمية والملموسة مع الدفع الفوري عبر عملة Pi.</p>
+    <main class="container mx-auto px-4">
+        
+        <section id="home" class="tab-section active py-20 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-6xl font-black text-purple-950 mb-6 leading-tight">النظام البيئي المالي<br>للتجارة الحرة</h2>
+                <p class="text-gray-500 text-xl mb-12 italic">مقايضة حقيقية بأسعار الواقع وفق بروتوكول شبكة Pi العالمي.</p>
                 <div class="flex justify-center gap-4">
-                    <button onclick="showSection('shop')" class="bg-white text-purple-900 font-bold px-8 py-3 rounded-full hover:bg-purple-100 transition shadow-lg">تصفح الرفوف</button>
-                    <button onclick="showSection('about')" class="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-purple-900 transition">تعرف علينا</button>
+                    <button onclick="showTab('shop')" class="bg-purple-950 text-white px-10 py-4 rounded-xl font-black shadow-2xl hover:bg-black transition">استعراض الرفوف</button>
+                    <button onclick="showTab('admin')" class="border-2 border-purple-950 text-purple-950 px-10 py-4 rounded-xl font-black">إدارة النظام</button>
+                </div>
+                <div class="ad-basin h-40 rounded-3xl mt-12">مساحة إعلانية - واجهة النظام</div>
+            </div>
+        </section>
+
+        <section id="shop" class="tab-section py-10">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <aside class="hidden lg:block w-40">
+                    <div class="ad-basin h-[600px] w-40 sticky top-24">إعلان جانبي</div>
+                </aside>
+
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-black border-r-8 border-purple-950 pr-4 mb-8">الرفوف الرقمية</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10 text-center">
+                        <div class="p-4 bg-white shadow rounded-xl border">كتب</div>
+                        <div class="p-4 bg-white shadow rounded-xl border">أدوات</div>
+                        <div class="p-4 bg-white shadow rounded-xl border">تطبيقات</div>
+                        <div class="p-4 bg-white shadow rounded-xl border">أكواد</div>
+                        <div class="p-4 bg-white shadow rounded-xl border">قوالب</div>
+                        <div class="p-4 bg-white shadow rounded-xl border">شعارات</div>
+                    </div>
+
+                    <div class="ad-basin h-32 rounded-2xl">إعلان فئة المنتجات</div>
+
+                    <h3 class="text-2xl font-black border-r-8 border-blue-900 pr-4 mb-8">الرفوف الملموسة</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs">
+                        <div class="p-3 bg-white shadow rounded-lg border">عقارات</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">سيارات</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">أواني منزلية</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">كهربائيات</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">تجميل</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">ملابس</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">مجوهرات</div>
+                        <div class="p-3 bg-white shadow rounded-lg border">خضر وفواكه</div>
+                    </div>
+                </div>
+
+                <aside class="hidden lg:block w-40">
+                    <div class="ad-basin h-[600px] w-40 sticky top-24">إعلان جانبي</div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="admin" class="tab-section py-10">
+            <div class="bg-gray-900 text-white p-10 rounded-3xl shadow-2xl border-b-8 border-yellow-500">
+                <h3 class="text-3xl font-black mb-8">لوحة إدارة النظام البيئي</h3>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="flex flex-col gap-4">
+                        <p class="text-sm italic text-yellow-500">ملاحظة: النشر هنا حقيقي وقانوني ويخضع لرقابتك.</p>
+                        <input type="text" placeholder="اسم المنتج" class="p-4 rounded-xl bg-gray-800 border-none">
+                        <select class="p-4 rounded-xl bg-gray-800 border-none text-gray-400">
+                            <option>اختر الرف...</option>
+                            <option>رقمي</option>
+                            <option>ملموس</option>
+                        </select>
+                        <input type="number" placeholder="السعر الحقيقي بالـ Pi" class="p-4 rounded-xl bg-gray-800 border-none">
+                        <button class="bg-yellow-500 text-black font-black py-4 rounded-xl">نشر في المتجر</button>
+                    </div>
+                    <div class="ad-basin h-full rounded-2xl bg-gray-800/50">إعلان لوحة التحكم</div>
                 </div>
             </div>
-            <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        </div>
+        </section>
 
-        <div class="container mx-auto py-16 px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div class="p-6 bg-white rounded-xl shadow-sm italic">"أمان فائق في الدفع"</div>
-            <div class="p-6 bg-white rounded-xl shadow-sm italic">"منتجات ملموسة ورقمية"</div>
-            <div class="p-6 bg-white rounded-xl shadow-sm italic">"دعم كامل لمجتمع Pi"</div>
-        </div>
     </main>
 
-    <section id="shop" class="section py-12 container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 border-r-8 border-purple-600 pr-4">رفوف المنتجات</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition duration-300">
-                <div class="h-52 bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center text-purple-600 font-bold text-lg">📁 منتج رقمي (PDF)</div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">كتاب أسرار التجارة</h3>
-                    <p class="text-gray-500 text-sm mb-4 h-12 overflow-hidden">تعلم كيف تبيع منتجاتك وتحقق أرباحاً بالـ Pi.</p>
-                    <div class="flex justify-between items-center border-t pt-4">
-                        <span class="text-2xl font-black text-purple-700">5 Pi</span>
-                        <button onclick="handlePayment('كتاب أسرار التجارة', 5)" class="bg-purple-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-purple-700 shadow-md">شراء</button>
-                    </div>
+    <footer class="bg-white border-t mt-20 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 mb-10">
+                <div>
+                    <h4 class="text-2xl font-black mb-4">رسالة النظام</h4>
+                    <p class="text-gray-500 leading-relaxed">بناء سوق عالمي يعتمد على قيمة العملة الحقيقية وتبادل المنافع دون وسيط، مع الالتزام التام بمعايير الخصوصية والأمان التقني لشبكة Pi.</p>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-black mb-4">سياسة الخصوصية</h4>
+                    <p class="text-gray-500 text-sm italic leading-relaxed">نظامنا لا يجمع كلمات السر. المصادقة تتم برمجياً عبر Pi SDK. جميع الحقوق والبيانات محمية بموجب قانون البلوكشين اللامركزي.</p>
                 </div>
             </div>
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition duration-300">
-                <div class="h-52 bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center text-blue-600 font-bold text-lg">🎧 منتج ملموس</div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">سماعات لاسلكية Pro</h3>
-                    <p class="text-gray-500 text-sm mb-4 h-12 overflow-hidden">جودة صوت استثنائية مع تقنية عزل الضوضاء.</p>
-                    <div class="flex justify-between items-center border-t pt-4">
-                        <span class="text-2xl font-black text-purple-700">25 Pi</span>
-                        <button onclick="handlePayment('سماعات Pro', 25)" class="bg-purple-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-purple-700 shadow-md">شراء</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section py-20 container mx-auto px-4">
-        <div class="max-w-4xl mx-auto bg-white p-10 rounded-3xl shadow-lg text-center border-t-8 border-purple-600">
-            <h2 class="text-4xl font-bold mb-6 text-purple-900">من نحن؟</h2>
-            <p class="text-gray-700 text-xl leading-relaxed mb-8">
-                نحن منصة **P-Comerce**، المشروع الرائد في توفير حلول التجارة الإلكترونية لمستخدمي Pi Network. نسعى لبناء جسر بين العملات المشفرة والواقع الملموس.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
-                <div class="bg-purple-50 p-4 rounded-xl">📍 مقرنا: عالمي (عبر البلوكشين)</div>
-                <div class="bg-purple-50 p-4 rounded-xl">🚀 رؤيتنا: تمكين التجارة اللامركزية</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="privacy" class="section py-20 container mx-auto px-4">
-        <div class="max-w-4xl mx-auto bg-white p-10 rounded-3xl shadow-lg border-r-8 border-purple-600">
-            <h2 class="text-3xl font-bold mb-8 text-purple-900 uppercase">سياسة الخصوصية</h2>
-            <div class="space-y-6 text-gray-700 text-lg">
-                <p>🛡️ **حماية البيانات:** نحن لا نقوم بتخزين مفاتيحك الخاصة أو كلمات مرور محفظتك.</p>
-                <p>💰 **المعاملات:** جميع المدفوعات تتم عبر بوابة Pi الرسمية المشفرة تماماً.</p>
-                <p>🍪 **الكوكيز:** نستخدم فقط الملفات الضرورية لتشغيل تجربة المستخدم داخل متصفح باي.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-900 text-gray-400 py-12 mt-20 border-t-4 border-purple-600 text-center px-4">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold text-white mb-4 italic">P-Comerce 2026</h2>
-            <p class="mb-4">جميع الحقوق محفوظة لمشروع متجر شبكة Pi</p>
-            <div class="flex justify-center space-x-4 space-x-reverse text-sm">
-                <a href="#" class="hover:text-white">تويتر</a>
-                <a href="#" class="hover:text-white">تلغرام</a>
-                <a href="#" class="hover:text-white">دعم المطورين</a>
-            </div>
+            <div class="ad-basin h-24 rounded-xl">مساحة إعلانية سفلية - A</div>
+            <div class="ad-basin h-24 rounded-xl">مساحة إعلانية سفلية - B</div>
         </div>
     </footer>
 
     <script>
-        // تفعيل الربط وتجاوز المرحلة السادسة
+        // تثبيت الربط الأرضي مع Pi وتفعيل المرحلة 6
         const Pi = window.Pi;
         Pi.init({ version: "2.0", sandbox: true });
 
-        // التبديل بين الأقسام
-        function showSection(id) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        // التبديل السلس بين الأقسام
+        function showTab(id) {
+            document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             window.scrollTo(0,0);
         }
 
-        // معالجة الدفع بالـ Pi
-        async function handlePayment(name, amount) {
+        // المصادقة التلقائية (الجوهر)
+        async function authenticateUser() {
             try {
-                const payment = await Pi.createPayment({
-                    amount: amount,
-                    memo: "شراء من P-Comerce: " + name,
-                    metadata: { productName: name }
-                }, {
-                    onReadyForServerApproval: (id) => console.log("الموافقة.."),
-                    onReadyForServerCompletion: (id, txid) => alert("🎉 تم الشراء بنجاح! شكراً لك."),
-                    onCancel: (id) => alert("❌ تم إلغاء المعاملة"),
-                    onError: (err) => alert("⚠️ خطأ في نظام الدفع")
-                });
+                const user = await Pi.authenticate(['payments', 'username'], onIncompletePaymentFound);
+                console.log("تمت المصادقة بنجاح: " + user.username);
             } catch (e) {
-                alert("يرجى فتح المتجر من Pi Browser لتتمكن من الشراء");
+                console.error("يرجى الفتح من Pi Browser");
             }
         }
+        function onIncompletePaymentFound(p) { /* معالجة المدفوعات */ }
     </script>
 </body>
 </html>
